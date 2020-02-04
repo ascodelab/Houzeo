@@ -16,3 +16,5 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', 'HouzeoController@index');
+Route::get('/people', 'PeopleController@index');
+Route::get('/movies', 'MoviesController@index');
