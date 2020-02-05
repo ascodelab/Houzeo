@@ -10,6 +10,17 @@
 * XML PHP Extension
 * Ctype PHP Extension
 * JSON PHP Extension
+
+## Things covered
+
+* Star Wars APIs Integration ( ofcourse :-) )
+* Laravel 5.6 Setup
+* Database Migrations
+* Many To Many Relationship
+* Reusable Vue Components
+* Two ways binding and reactivity
+* Batch Insert
+
 ## Getting this up and running
 
 ### 1. _Cloning the project_
