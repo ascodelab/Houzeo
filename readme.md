@@ -42,7 +42,7 @@ edit .env and set database credentials
 
     $ php artisan migrate
 
-### 5. Run Laravel application
+### 6. Run Laravel application
 
     $ php artisan serve
 
