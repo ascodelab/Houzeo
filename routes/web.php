@@ -14,7 +14,19 @@
 Route::get('/welcome', function () {
     return view('welcome');
 });
-
+// view routes
 Route::get('/', 'HouzeoController@index');
-Route::get('/people', 'PeopleController@index');
-Route::get('/movies', 'MoviesController@index');
+Route::get('/browse/movies', 'HouzeoController@browseMovies');
+Route::get('/browse/people', 'HouzeoController@browsePeople');
+Route::get('/movie/{movie_id}/people', 'HouzeoController@people');
+Route::get('/person/{person_id}/movies', 'HouzeoController@movies');
+
+//person related routes
+Route::get('/api/people', 'PeopleController@getAll');
+Route::get('/api/person/{person_id}/movies', 'PeopleController@getAllMovies');
+Route::post('/api/people', 'PeopleController@saveAll');
+
+//movie related routes
+Route::get('/api/movies', 'MoviesController@getAll');
+Route::get('/api/movie/{movie_id}/people', 'MoviesController@getAllPeople');
+Route::post('/api/movies', 'MoviesController@saveAll');

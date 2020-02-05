@@ -4,7 +4,7 @@
         <div class="card-header bg-info text-white">Movies</div>
         <div class="card-body">
             <button type="button" class="btn btn-info text-white" v-on:click="fetchMovies">{{fetchButtonText}}</button>
-            <button type="button" class="btn btn-info text-white" v-on:click="fetchMovies">{{saveButtonText}}</button>
+            <button type="button" class="btn btn-info text-white" v-on:click="saveMovies">{{saveButtonText}}</button>
         </div>
         <!-- table content -->
         <div class="result-table-wrap">
@@ -57,6 +57,26 @@
                     moviesData.movies = res.results;
                     console.log(res);
                 },'json')
+            },
+            //saving data into data base
+            saveMovies:function(){
+                let peopleData = this;
+                // changing button text
+                peopleData.saveButtonText = "Saving..";
+                //send ajax request
+                axios.post('http://localhost:8000/api/movies', 
+                    // data need to be send
+                    { 
+                        data:peopleData.movies
+                    })
+                    .then(function (response) {
+                        peopleData.saveButtonText = "Saved!";
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        // Wu oh! Something went wrong
+                        console.log(error.message);
+                });
             }
         }
     }

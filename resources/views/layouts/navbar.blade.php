@@ -10,10 +10,10 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/browse">Movies</a>
+        <a class="nav-link" href="/browse/movies">Movies</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/browse">People</a>
+        <a class="nav-link" href="/browse/people">People</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

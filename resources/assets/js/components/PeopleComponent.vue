@@ -4,7 +4,7 @@
         <div class="card-header bg-info text-white">People</div>
         <div class="card-body">
             <button type="button" class="btn btn-info text-white" v-on:click="fetchPeople">{{fetchButtonText}}</button>
-            <button type="button" class="btn btn-info text-white" v-on:click="fetchPeople">{{saveButtonText}}</button>
+            <button type="button" class="btn btn-info text-white" v-on:click="savePeople">{{saveButtonText}}</button>
         </div>
         <!-- table content -->
         <div class="result-table-wrap">
@@ -59,6 +59,26 @@
                     peopleData.people = res.results;
                     console.log(res);
                 },'json')
+            },
+            //saving data into data base
+            savePeople:function(){
+                let peopleData = this;
+                // changing button text
+                peopleData.saveButtonText = "Saving..";
+                //send ajax request
+                axios.post('http://localhost:8000/api/people', 
+                    // data need to be send
+                    { 
+                        data:peopleData.people
+                    })
+                    .then(function (response) {
+                        peopleData.saveButtonText = "Saved!";
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        // Wu oh! Something went wrong
+                        console.log(error.message);
+                });
             }
         }
     }
